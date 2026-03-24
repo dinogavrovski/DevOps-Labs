@@ -23,6 +23,7 @@ pipeline {
                 script {
                     docker.withRegistry('', "${DOCKER_CREDS}") {
                         sh "docker push ${DOCKER_IMAGE}:${env.BUILD_ID}"
+                        sh "docker push ${DOCKER_IMAGE}:latest"
                     }
                 }
             }
